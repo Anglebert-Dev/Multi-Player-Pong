@@ -1,9 +1,8 @@
-import { io } from "https://cdn.socket.io/4.4.1/socket.io.esm.min.js";
-const socket = io('http://localhost:5000')
+
 // Canvas Related 
 const canvas = document.createElement('canvas');
 const context = canvas.getContext('2d');
-// const socket = 
+const socket =io("http://localhost:5000"); 
 let paddleIndex = 0;
 
 let width = 500;
@@ -166,7 +165,7 @@ function animate() {
 function startGame() {
   createCanvas();
   renderIntro();
-  socket.emit("ready")
+  socket.emit('ready' , {})
   
   paddleIndex = 0;
   window.requestAnimationFrame(animate);
